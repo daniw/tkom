@@ -154,4 +154,17 @@ Komplexe Exponentialfunktion
 si-Funktion
 \[ \si(t) = \frac{\sin(t)}{t} \]
 
+\section{Energie, Leistung}
+Energie
+\[ E_x = \sum\limits_{k = -\infty}^{\infty} \left(\left|x[k]\right|^2\right) \]
+\[ E_x = \int\limits_{-\infty}^{\infty} \left(\left|x(t)\right|^2\right) dt \]
+Energiesignale: 
+\[ E_x < \infty \]
+Leistung
+\[ P_x = \lim\limits_{n \to \infty} \frac{1}{2 \cdot n + 1} \sum\limits_{k = -n}^{n} \left(\left|x[k]\right|^2\right) \]
+\[ P_x = \lim\limits_{T \to \infty} \frac{1}{T} \int\limits_{-\frac{T}{2}}^{\frac{T}{2}} \left(\left|x(t)\right|^2\right) dt \]
+Leistungssignale:
+\[ P_x > 0 \qquad P_x < \infty \]
+
+
 \end{document}
