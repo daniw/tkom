@@ -166,5 +166,30 @@ Leistung
 Leistungssignale:
 \[ P_x > 0 \qquad P_x < \infty \]
 
+\section{Korrelation von Energiesignalen}
+
+\subsection{Kreuzkorrelation}
+\[ \varphi_{xy}^{E} (\kappa) = \sum\limits_{k = -\infty}^{\infty} \left(x^\star[k] \cdot y[k + \kappa]\right) \]
+\[ \varphi_{xy}^{E} (\tau) = \int\limits_{-\infty}^{\infty} \left(x^\star(t) \cdot y(t + \tau)\right) dt \]
+es gilt: 
+\[ \varphi_{yx}(\tau) = \varphi_{xy}^\star(-\tau) \]
+
+\subsection{Autokorrelation}
+\[ \varphi_{xx}^{E} (\kappa) = \sum\limits_{k = -\infty}^{\infty} \left(x^\star[k] \cdot x[k + \kappa]\right) \]
+\[ \varphi_{xx}^{E} (\tau) = \int\limits_{-\infty}^{\infty} \left(x^\star(t) \cdot x(t + \tau)\right) dt \]
+es gilt: 
+\[ E_x = \varphi_{xx}^{E} (0) \]
+
+\section{Korrelation von Leistungssignalen}
+
+\subsection{Kreuzkorrelation}
+\[ \varphi_{xy}^{L} (\kappa) = \lim\limits_{n \to \infty} \frac{1}{2 \cdot n + 1} \sum\limits_{k = -n}^{n} \left(x^\star[k] \cdot y[k + \kappa]\right) \]
+\[ \varphi_{xy}^{L} (\tau) = \lim\limits_{T \to \infty} \frac{1}{2 \cdot T} \int\limits_{-T}^{T} \left(x^\star(t) \cdot y(t + \tau)\right) dt \]
+es gilt: 
+\[ P_x = \varphi_{xx}^{L} (0) \]
+
+\subsection{Kreuzkorrelation periodischer Signale}
+\[ \varphi_{xy}^{L} (\kappa) = \frac{1}{N_p} \sum\limits_{k = k_0}^{k_0 + N_p - 1} \left(x^\star[k] \cdot y[k + \kappa]\right) \]
+\[ \varphi_{xy}^{L} (\tau) = \frac{1}{T_p} \int\limits_{t_0}^{t_0 + T_p} \left(x^\star(t) \cdot y(t + \tau)\right) dt \]
 
 \end{document}
