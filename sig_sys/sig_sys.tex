@@ -74,4 +74,84 @@ $x(t - \tau$ ist die umf $\tau$ verzögerte Version von $x(t)$. \\\\
 \end{tikzpicture}\\
 $\to$ nicht zeitinvariant $\to$ kein LTI-System
 
+\section{Signale}
+Zeitliche Verschiebung
+\[ x(t - t_0) \]
+Zeitliche Spiegelung
+\[ x(-t) \]
+Zeitliche Skalierung
+\[ x(a \cdot t) \]
+Komplexe Signale
+\[ x(t) = x_R(t) + j \cdot x_I(t) = Re(x(t)) + j \cdot Im(x(t)) = |x(t)| \cdot e^{j \angle x(t)} \]
+Gerade Signale
+\[ x(t) = x(-t) \]
+Ungerade Signale
+\[ x(t) = -x(-t) \]
+Zerlegung in geraden und ungeraden Anteil
+\[ x_g(t) = \frac{1}{2} \cdot \left(x(t) - x(-t)\right) \]
+\[ x_u(t) = \frac{1}{2} \cdot \left(x(t) + x(-t)\right) \]
+\[ x(t) = x_g(t) + x_u(t) \]
+Konjugiert gerade Signale
+\[ x(t) = x^{\star}(-t) \]
+Konjugiert ungerade Signale
+\[ x(t) = -x^{\star}(-t) \]
+Periodische Signale
+\[ x(t) = x(t + n \cdot T_p) \qquad n \in \mathbb{Z} \]
+Zeitbegrenzte Signale
+\[ x(t) = 0 \qquad \text{für $t < t_1$ oder $t > t_2$} \]
+
+\subsection{Spezielle Signale}
+Zeitdiskreter Dirac-Impuls
+\[
+\sigma[k] = \left\{
+    \begin{array}{ll}
+        1, & k = 0 \\
+        0, & k \neq 0
+    \end{array}
+\right.
+\]
+Zeitdiskrete Sprungfunktion
+\[
+\varepsilon[k] = \left\{
+    \begin{array}{ll}
+        1, & k \geq 0 \\
+        0, & k < 0
+    \end{array}
+\right.
+\]
+Kontinuierliche Sprungfunktion
+\[
+\varepsilon(t) = \left\{
+    \begin{array}{ll}
+        1, & t > 0 \\
+        0, & t < 0
+    \end{array}
+\right.
+\]
+Zeitdiskrete Signumfolge
+\[
+\sgn[k] = \left\{
+    \begin{array}{ll}
+        1,  & k > 0 \\
+        0,  & k = 0 \\
+        -1, & k < 0
+    \end{array}
+\right.
+\]
+Kontinuierlicher Rechteckimpuls
+\[
+\rect_T(t) = \left\{
+    \begin{array}{ll}
+        1, & |t| < \frac{T}{2} \\
+        0, & |t| > \frac{T}{2}
+    \end{array}
+\right.
+\]
+Reelle Exponentialfunktion
+\[ x(t) = A \cdot e^{\alpha t} \qquad \alpha < 0 \to \text{ abklingend} \qquad \alpha > 0 \to \text{ aufklingend} \]
+Komplexe Exponentialfunktion
+\[ x(t) = A \cdot e^{\alpha t} \cdot e^{j \omega_0 t} = \underbrace{|A| \cdot e^{\sigma t}}_{\text{Einhüllende}} \cdot \underbrace{e^{j(\omega_0 t + \varphi_0)}}_{\text{komplexe Schwingung}} \]
+si-Funktion
+\[ \si(t) = \frac{\sin(t)}{t} \]
+
 \end{document}
