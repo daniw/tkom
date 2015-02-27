@@ -220,5 +220,92 @@ es gilt:
 \[ Y(z) = \frac{1}{1 - z^{-1} - z^{-2}} \cdot X(z) \]
 \[ x[k] = \delta[k] ~\laplace~ X(z) = \sum\limits_{k = -\infty}^{\infty} x[k] \cdot z^{-k} = 1 \]
 \[ \rightarrow Y(z) = \frac{1}{1 - z^{-1} - z^{-2}} \]
+\[ \rightarrow Y(z) = \frac{z^2}{z^2 - z - 1} = z \cdot \frac{z}{z^2 - z - 1} \]
+Partialbruchzerlegung von $\frac{z}{z^2 - z - 1}$
+\[ \frac{z}{z^2 - z - 1} = \frac{A}{z - a} + \frac{B}{z - b}
+= \frac{A \cdot (z - b) + B \cdot (z - a)}{(z - a) \cdot (z - b)}\]
+\[ z^2 - z - 1 = (z - a) \cdot (z - b) \]
+\[ z^2 - z - 1 = 0 \qquad \text{für } z_{1,2} = \frac{1}{2} \pm \sqrt{\frac{1}{4} + 1}
+    \to \left\{ 
+    \begin{array}{l} 
+        a = \frac{1}{2} \left(1 + \sqrt{5}\right) \\
+        b = \frac{1}{2} \left(1 - \sqrt{5}\right) 
+    \end{array} \right.
+\]
+\[ z = A \cdot (z - b) + B \cdot (z - a) \]
+\[ z = A \cdot z + B \cdot z - A \cdot b - B \cdot a \]
+\[ \left. \begin{array}{l}
+        A + B = 1 \\
+        A \cdot b + B \cdot a = 0
+    \end{array} \right\} 
+    \to \boxed{A = \frac{1}{2} \cdot \left(1 + \frac{1}{\sqrt{5}}\right),
+    B = \frac{1}{2} \cdot \left(1 - \frac{1}{\sqrt{5}}\right) }
+\]
+Einsetzen
+\[ Y(z) = \frac{A \cdot z}{z - a} + \frac{B \cdot z}{z - b} 
+= \frac{A}{1 - \frac{a}{z}} + \frac{B}{1 - \frac{b}{z}}\]
+\[ \sum\limits_{k = 0}^{\infty} q^k = \frac{1}{1 - q} \qquad \forall ~ |q| < 1 \]
+\[ \to \frac{1}{1 - \frac{a}{z}} = \sum\limits_{k = 0}^{\infty} \left(\frac{a}{z}\right)^k
+= \sum\limits_{k = 0}^{\infty} a^k \cdot z^{-k} \]
+\[ Y(z) = A \cdot \sum\limits_{k = 0}^{\infty} a^k \cdot z^{-k} + B \cdot \sum\limits_{k = 0}^{\infty} b^k \cdot z^{-k} \]
+\[ y[k] = \left( A \cdot a^k + B \cdot b^k \right) \cdot \varepsilon[k] \]
+
+\subsection{z-Transformation}
+Definition:
+\[ X(z) = Z\{x[k]\} = \sum\limits_{k = -\infty}^{\infty} x[k] \cdot z^{-k} \qquad z \in \mathbb{C} \]
+Korrespondenzen: 
+\[ Z\{\delta[k]\} = 1 \qquad \text{Impulsfolge} \]
+\[ Z\{a^k \cdot \varepsilon[k]\} = \frac{z}{z - a} \qquad \text{kausale Exponentialfolge} \]
+Verschiebungsregel:
+\[ Z\{x[k - k_0]\} = z^{-k_0} \cdot Z\{x[k]\} \]
+Schreibweise:
+\[ x[k] \laplace X(z) \]
+
+\subsubsection{Herleitung einer geschlossenen Lösung über die z-Transformation}
+Differenzengleichung: 
+\[ y[k] = y[k - 1] + y[k - 2] + x[k] \]
+Transformation in z-Bereich:
+\[ Y(z) = \frac{X(z)}{1 - z^{-1} - z^{-2}} = \frac{z^2}{z^2 - z^1 - z} \]
+Partialbruchzerlegung: 
+\[ Y(z) = \frac{A \cdot z}{z - a} + \frac{B \cdot z}{z - b} \]
+Rücktransformation in Zeitbereich:
+\[ y[k] = \left[ A \cdot a^k + B \cdot b^k \right] \cdot \varepsilon[k] \]
+
+\subsubsection{Beschreibung allgemeiner LTI-Systeme im z-Bereich}
+Differenzengleichung:
+\[ y[k] = -\sum\limits_{i = 1}^{n} \tilde{a}_i \cdot y[k - i] + \sum\limits_{\ell = 1}^{m} \tilde{a}_i \cdot y[k - \ell] \]
+elementweise Transformation:
+\[ \begin{array}{ccc}
+    \sum\limits_{i = 0}^{n} \tilde{a}_i \cdot y[k - i] & 
+        = & 
+        \sum\limits_{i = 1}^{m} \tilde{b}_i \cdot y[k - i] \\
+    \laplace &   & \laplace \\
+    \sum\limits_{i = 0}^{n} \tilde{a}_i \cdot z^{-i} \cdot Y(z) & 
+        = & 
+        \sum\limits_{i = 1}^{m} \tilde{b}_i \cdot z^{-i} \cdot Y(z) \\
+\end{array} \]
+Ausgabesignal im z-Bereich:
+\[ Y(z) = \frac{\sum\limits_{i = 0}^{m} \tilde{b}_i \cdot z^{-i}}
+    {\sum\limits_{i = 0}^{m} \tilde{a}_i \cdot z^{-i}} 
+    \cdot X(z) = H(z) \cdot X(z) \qquad \tilde{a} \neq 0
+\]
+
+\subsection{Übertragungsfunktion und Impulsantwort}
+Übertragungsfunktion (Systemantwort):
+\[ H(z) = \frac{Y(z)}{X(z)} 
+    = \frac{\sum\limits_{i = 0}^{m} \tilde{b}_i \cdot z^{-i}}
+    {\sum\limits_{i = 0}^{n} \tilde{a}_i \cdot z^{-i}}
+    = \frac{\tilde{b}_0 + \tilde{b}_1 \cdot z^{-1} + \ldots + \tilde{b}_m \cdot z^{-m}}
+    {\tilde{a}_0 + \tilde{a}_1 \cdot z^{-1} + \ldots + \tilde{a}_n \cdot z^{-n}}
+    \qquad \tilde{a}_0 \neq 0 \]
+Impulsantwort:
+\[ h[k] = H\{ \delta[k] \} ~ \laplace ~ H(z) \]
+
+\subsection{Beispiel Funkstrecke}
+\[ y[k] = x[k] + \frac{1}{2} \cdot x[k - 1] \]
+\[ Y(z) = X(z) + \frac{1}{2} \cdot z^{-1} \cdot X(z) \]
+\[ Y(z) = \left( 1 + \frac{1}{2} \cdot z^{-1} \right) \cdot X(z) \]
+\[ H(z) = 1 + \frac{1}{2} \cdot z^{-1} \]
+\[ h[k] = \delta[k] + \frac{1}{2} \cdot \delta[k - 1] \]
 
 \end{document}
