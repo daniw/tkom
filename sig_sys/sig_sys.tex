@@ -195,4 +195,30 @@ es gilt:
 \section{Geometrische Reihe}
 \[ \sum\limits_{k = 0}^{\infty} q^k = \frac{1}{1 - q} \]
 
+\section{Diskrete LTI Systeme}
+\[ y[k] = y[k - 1] + y[k - 2] + x[k] \qquad x[k] = \delta[k] \]
+
+\subsection{Differenzengleichung in allgemeiner Form}
+\[ y[k] = -\sum\limits_{i = 1}^{n} \~{a_i} ~ y[k - i] + \sum\limits_{i = 1}^{\ell} \tilde{b_i} ~ y[k - \ell] \]
+
+\subsubsection*{Beispiel Hasenzucht}
+\[ y[k] = y[k - 1] + y[k - 2] + x[k] \qquad x[k] = \delta[k] \]
+\[ 
+    \underbrace{\sum\limits_{k = -\infty}^{\infty} y[k] \cdot z^{k}}
+    _{Y(z)}
+    =
+    \underbrace{\sum\limits_{k = -\infty}^{\infty} y[k - 1] \cdot z^{k}}
+    _{z^{-1} \cdot \sum\limits_{k = -\infty}^{\infty} y[k - 1] \cdot z^{-(k - 1)} = z^{-1} \cdot Y(z)}
+    +
+    \underbrace{\sum\limits_{k = -\infty}^{\infty} y[k - 2] \cdot z^{k}}
+    _{z^{-2} \cdot Y(z)}
+    +
+    \underbrace{\sum\limits_{k = -\infty}^{\infty} x[k] \cdot z^{k}}
+    _{X(z)}
+\]
+\[ Y(z) = z^{-1} \cdot Y(z) + z^{-2} \cdot Y(z) + X(z) \]
+\[ Y(z) = \frac{1}{1 - z^{-1} - z^{-2}} \cdot X(z) \]
+\[ x[k] = \delta[k] ~\laplace~ X(z) = \sum\limits_{k = -\infty}^{\infty} x[k] \cdot z^{-k} = 1 \]
+\[ \rightarrow Y(z) = \frac{1}{1 - z^{-1} - z^{-2}} \]
+
 \end{document}
