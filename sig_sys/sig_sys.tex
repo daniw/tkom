@@ -338,4 +338,26 @@ Impulsantwort:
     \end{array}
 \]
 
+\subsection{Beispiel Entzerrer}
+\[ H_{ges} = 1 \]
+\[ H_{inv} = \frac{1}{H(z)} = \frac{1}{1 + \frac{1}{2} \cdot z^{-1}} = \frac{z}{z + \frac{1}{2}} \]
+Geometrische Reihe
+\[ h_{inv}[k] = \left(-\frac{1}{2}\right)^k \cdot \varepsilon[k] \]
+\begin{tikzpicture}
+    \draw[thick, ->] (-1.5,0) -- (5.5,0);
+    \draw[thick, ->] (0,-1) -- (0,1.5);
+    \fill[green] (-1,      0) circle [radius=0.07];
+    \fill[green] ( 0,      1) circle [radius=0.07];
+    \fill[green] ( 1,   -0.5) circle [radius=0.07];
+    \fill[green] ( 2,   0.25) circle [radius=0.07];
+    \fill[green] ( 3, -0.125) circle [radius=0.07];
+    \fill[green] ( 4, 0.0625) circle [radius=0.07];
+    \fill[red]   ( 0,      0) circle [radius=0.07];
+    \fill[red]   ( 1,    0.5) circle [radius=0.07];
+    \fill[red]   ( 2,  -0.25) circle [radius=0.07];
+    \fill[red]   ( 3,  0.125) circle [radius=0.07];
+    \fill[red]   ( 4,-0.0625) circle [radius=0.07];
+\end{tikzpicture}
+\[ h[k] \star h_{inv}[h] = \delta[k] \]
+
 \end{document}
