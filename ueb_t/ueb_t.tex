@@ -1,0 +1,74 @@
+\documentclass[a4paper, 10pt, fleqn]{article}
+
+\usepackage{layout}
+
+\title{TKOM - Übertragungstechnik}
+\author{daniw}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\clearpage
+
+\tableofcontents
+
+\clearpage
+
+\section{Elektrische Länge}
+\[ \ell_\lambda = \frac{\text{physikalische Länge}}{\text{Wellenlänge}} \left\{
+\begin{array}{lcl}
+\leq \frac{1}{20} & \to & \text{klassische Elektrotechnik} \\
+\leq \frac{1}{20} & \to & \text{Wellenphänomene} \\
+                  &     & \text{$\Rightarrow$ Feldtheorie} \\
+                  &     & \text{$\Rightarrow$ Leitungstheorie} \\
+\end{array}
+\right. \]
+
+\section{Leitungstheorie}
+\begin{itemize}
+    \item Längshomogen \\
+        Material und Geometrie bleiben erhalten
+    \item eine Laufkoordinate Z (1 Dimensional)
+    \item $d << \lambda$
+\end{itemize}
+
+Ersatzschaltbild: 
+\[ R' \left[\frac{\Omega}{m}\right] \]
+\[ G' \left[\frac{S}{m}\right] \]
+\[ L' \left[\frac{H}{m}\right] \]
+\[ C' \left[\frac{F}{m}\right] \]
+
+\[ x(t) = A (\cos(\omega t) + j \cdot \sin(\omega t)) = Re(A \cdot e^{j \omega t}) \]
+\[ \frac{\partial^2 \cdot  U(z, t)}{dz^2} - \gamma^2 \cdot U(z, t) = 0 \]
+\[ \frac{\partial^2 \cdot  I(z, t)}{dz^2} - \gamma^2 \cdot I(z, t) = 0 \]
+Allgemeine Lösung: 
+\[ 
+    U(z, t) 
+    = \underbrace{U_V \cdot e^{-\gamma z} \cdot e^{j \omega t}}_{rechtslaufend} 
+    - \underbrace{U_R \cdot e^{+\gamma z} \cdot e^{j \omega t}}_{linkslaufend} 
+    = Re(U(z, t)) 
+    = U_V \cdot e^{-\alpha z} \cdot \cos(\omega t - \beta z) 
+\]
+
+\subsection{Komplexer Ausbreitungskoeffizient}
+\[ 
+    \gamma 
+    = \underbrace{\alpha}_{\text{Dämpfungsbelag }\left[\frac{NP}{m}\right]} 
+    + \underbrace{j \beta}_{\text{Phasenbelag }\left[\frac{rad}{m}\right]}
+    = \sqrt{(R' + j \omega C') \cdot (G' + j \omega C')}
+\]
+\[ \alpha_{dB/m} = \alpha_{NP/m} \cdot 8.686 \]
+
+\subsection{Charakteristische Leitungsimpedanz}
+\[ Z_0 = \sqrt{\frac{R' + j \omega L'}{G' + j \omega C'}} \]
+
+\subsection{Verlustlose Leitung ($R' = G' = 0$)}
+\[ \gamma = j \beta = j \omega \sqrt{L' \cdot C'} \]
+\[ \alpha = 0 \]
+\[ Z_0 = \sqrt{\frac{L'}{C'}} \]
+
+
+
+\end{document}
