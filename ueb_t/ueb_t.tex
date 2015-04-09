@@ -69,6 +69,94 @@ Allgemeine Lösung:
 \[ \alpha = 0 \]
 \[ Z_0 = \sqrt{\frac{L'}{C'}} \]
 
+\section{Reflektion}
+\[ Z_0 = \sqrt{\frac{R' + j \omega L'}{G' + j \omega C'}} \]
+\[ \gamma = \alpha + j \beta = \sqrt{(R' + j \omega L') \cdot (G' + j \omega C')} \]
 
+\subsection{Reflektionskoeffizient}
+\[ r = \frac{U_R}{U_V} = \frac{R_L - Z_0}{R_L + Z_0} = -\frac{I_R}{I_V} \]
+\[ U_R =  r \cdot U_V \qquad | Z = \ell \]
+\[ I_R = -r \cdot I_V \qquad | Z = \ell \]
+Fall $R_L = 0$ $r = -1$
+\[ U_R = -U_V \]
+\[ \sum\limits_i U_i = U_V + U_R = U_V - U_V = 0 \]
+\[ \sum\limits_i I_i = I_V + I_R = I_V + I_V = 2 \cdot I_V \]
+\[ P_L = 0 \quad \Rightarrow P_R = P_V \]
+Fall $R_L = \infty$ $r = +1$
+\[ U_R = -U_V \]
+\[ \sum\limits_i U_i = U_V + U_R = U_V + U_V = 2 \cdot U_V \]
+\[ \sum\limits_i I_i = I_V + I_R = I_V - I_V = 0 \]
+\[ P_L = 0 \quad \Rightarrow P_R = P_V \]
+Wertebereich von $r$: 
+\[ |r^2| \leq 1 \]
+
+\subsection{Wellenanpassung (Impedanzanpassung)}
+\[ Z_L = Z_0 \]
+
+\subsection{Leistungsanpassung}
+\[ Z_L = {Z_0}^* \]
+
+\section{Drahtlose Übertragung}
+
+\subsection{Linkbudget Analyse}
+\begin{zebratabular}{ll}
+    \rowcolor{gray} Komponente &
+        Wert \\
+    Sendeleistung $P_{TX}$ &
+        $+30\si{\decibel}_m$ \\
+    Leitung, Anpassung $a_t$ &
+        $-3\si{\decibel}$ \\
+    Antennengewinn &
+        $+10\si{\decibel}_i$ \\
+    Kanaldämpfung &
+        $-100\si{\decibel}$ \\
+    Antenne &
+        $+10\si{\decibel}_i$ \\
+    Polarisationsverluste &
+        $-3\si{\decibel}$ \\
+    Leistung, Anpassung &
+        $-6\si{\decibel}$ \\
+    Empfangsleistung $P_{RX}$ &
+        $-62\si{\decibel}_m$ \\
+    Link Margin &
+        $-8\si{\decibel}$ \\
+    Empfängerempfindlichkeit &
+        $-70\si{\decibel}_m$ \\
+\end{zebratabular}
+
+\subsection{Fernfeld-Kriterium}
+\[ d_{min} = \frac{2 \cdot D^2}{\lambda} \]
+
+\subsection{Antennenleistung}
+\[ P_{ant} = P \cdot (1 - |r|^2) \]
+
+\subsection{Welligkeitsfaktor}
+\[ s = \frac{1 + |r|}{1 - |r|} \]
+
+\subsection{Richtwirkungsfaktor $D$}
+\[ D = \frac{S_{max}(\theta, \varphi) \si{\watt\per\square\metre}}
+    {S_{iso} \si{\watt\per\square\metre}} \]
+\[ D = \frac{4 \pi}{\varphi_{-3dB}(rad) + \theta_{-3dB}(rad)} \]
+
+\subsection{Antennengewinn}
+\[ G = n \cdot D \]
+\[ G_{dB} = 10 \cdot \log_{10}(G) \]
+
+\subsection{Empfangsleistung}
+\[ S_r (\si{\watt\per\square\metre}) \]
+\[ P_r = S_r \cdot A_e \]
+\[ A_e  \frac{\lambda^2}{4 \pi} \cdot G \]
+\[ P_r = \frac{E^2}{n_0} \cdot A_e \]
+Wellenwiderstand $n_0 = \sqrt{\frac{\mu_0}{\epsilon_0}} 
+= \frac{|E|}{|H|} \approx 377\si{\ohm}$
+
+\subsection{Freiraumdämpfung}
+\[ P_{RX} = P_{TX} \cdot a = P_{TX} \left(\frac{\lambda}{4 \pi \cdot d}\right)^2 \]
+
+\subsection{Kanalmodell}
+\[ P_r = P_t \cdot K \cdot \left(\frac{d_0}{d}\right)^\gamma \]
+\[ d_0 = 1\si{\metre} \]
+\[ \gamma_ \text{ Umfeld} \]
+\[ K = \left(\frac{\lambda}{4 \pi \cdot d_0}\right) \cdot G_r \cdot G_t \]
 
 \end{document}
