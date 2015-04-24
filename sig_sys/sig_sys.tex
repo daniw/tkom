@@ -406,4 +406,19 @@ idealer Abtastung.
 Multiplikation des Spektrums $X_a(f)$ mit $\si(\pi \cdot T \cdot f)$ vor 
 Tiefpassfilterung. 
 
+\section{Zeitdiskrete Fourier-Transformation}
+\[ x_a(t) = x(t) \cdot \sum\limits_{K} \delta (t - kT) \]
+$T$: Abtastinterval \\
+$f_a = \frac{1}{T}$: Abtastrate \\
+$x[k]$: zeitdiskretes Signal
+\[ 
+    x_a(t) = \sum\limits_k x[k] \cdot \delta (t - kT)
+    \quad \laplace \quad
+    X_a(f) = \sum\limits_k x[k] \cdot e^{-j2\pi f k T}
+\]
+$X_a(f)$ ist $f_a$-periodisch \\
+$\Omega = 2 \pi T f$: disktrete Kreisfrequenz
+\[ X(\Omega) = \sum\limits_k x[k] \cdot e^{-j \omega k} \]
+$X(\Omega)$ ist $2 \pi$-periodisch
+
 \end{document}
