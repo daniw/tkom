@@ -381,4 +381,29 @@ Wenn Zählergrad > Nennergrad: Polynomdivision bei $\frac{X(z)}{z}$
 \[ \to x[k] = \underbrace{\delta[k+2] + a \cdot \delta[k+1]}_{\text{antikausaler Anteil}} + 
     \left(1 + a^2\right) \cdot a^k \cdot \varepsilon[k] \]
 
+\section{Impulskamm}
+\[ x_p(t) = \left(\sum\limits_{K}^{} \delta(t - kT)\right) * x(t) \]
+\[ \sum\limits_{K} \delta (t - kT) ~ \laplace ~ \frac{1}{T} \sum\limits_{K} \delta \left(f - \frac{k}{T}\right)  \]
+
+\section{Ideale Abtastung, Rekonstruktion}
+$x(t)$: kontinuierliches Signal\\
+$x[k] = x(t) |_{t=k \cdot T}$: abgetastetes Signal\\
+$T$: Abtastintervall\\
+$f_a = \frac{1}{T}$: Abtastrate\\
+$x_a(t)$: kontinuierliche Darstellung von $x[k]$\\
+\[ x_a(t) = x(t) \cdot \sum\limits_{k} \delta (t - kT) ~ \laplace ~ 
+X_a(f) = X(f) * \frac{1}{T} \sum\limits_{k} \delta \left(f - \frac{k}{T}\right) \]
+rekonstruiertes Signal:
+\[ \widetilde{X}(f) = X_a(f) \cdot T \cdot \rect_{\frac{1}{T}}(f) ~ \laplace ~ 
+\widetilde{x}(t) = x_a(t) * \si\left(\pi \cdot \frac{t}{T}\right) \]
+
+\section{Reale Abtastung}
+Multiplikation  des Spektrums $X(f)$ mit $\si(\pi \cdot \Delta T \cdot f)$ vor 
+idealer Abtastung. 
+
+\section{Reale Signalrekonstruktion}
+("'Sample-and-Hold"')\\
+Multiplikation des Spektrums $X_a(f)$ mit $\si(\pi \cdot T \cdot f)$ vor 
+Tiefpassfilterung. 
+
 \end{document}
