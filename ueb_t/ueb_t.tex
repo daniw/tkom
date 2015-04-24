@@ -133,19 +133,27 @@ Wertebereich von $r$:
 \subsection{Welligkeitsfaktor}
 \[ s = \frac{1 + |r|}{1 - |r|} \]
 
+\subsection{Wirkungsgrad}
+\[ \eta = \frac{R_{rad}}{R_v + R_{rad}} \]
+
 \subsection{Richtwirkungsfaktor $D$}
 \[ D = \frac{S_{max}(\theta, \varphi) \si{\watt\per\square\metre}}
     {S_{iso} \si{\watt\per\square\metre}} \]
 \[ D = \frac{4 \pi}{\varphi_{-3dB}(rad) + \theta_{-3dB}(rad)} \]
+\[ D = \frac{S_r}{\frac{P_{rad}}{4 \cdot \pi \cdot R^2}} \]
 
 \subsection{Antennengewinn}
 \[ G = n \cdot D \]
 \[ G_{dB} = 10 \cdot \log_{10}(G) \]
 
+\subsection{Effective Radiated Power}
+\[ ERP = P_{ant} \cdot G \]
+WLAN: 100mW
+
 \subsection{Empfangsleistung}
 \[ S_r (\si{\watt\per\square\metre}) \]
 \[ P_r = S_r \cdot A_e \]
-\[ A_e  \frac{\lambda^2}{4 \pi} \cdot G \]
+\[ A_e = \frac{\lambda^2}{4 \pi} \cdot G \]
 \[ P_r = \frac{E^2}{n_0} \cdot A_e \]
 Wellenwiderstand $n_0 = \sqrt{\frac{\mu_0}{\epsilon_0}} 
 = \frac{|E|}{|H|} \approx 377\si{\ohm}$
@@ -156,7 +164,24 @@ Wellenwiderstand $n_0 = \sqrt{\frac{\mu_0}{\epsilon_0}}
 \subsection{Kanalmodell}
 \[ P_r = P_t \cdot K \cdot \left(\frac{d_0}{d}\right)^\gamma \]
 \[ d_0 = 1\si{\metre} \]
-\[ \gamma_ \text{ Umfeld} \]
+\[ \gamma: \text{ Parameter für Umfeld} \]
 \[ K = \left(\frac{\lambda}{4 \pi \cdot d_0}\right) \cdot G_r \cdot G_t \]
+
+\subsection{Grenzwert für nichtionisierende Strahlung}
+4\si{\volt\per\metre}
+
+\subsection{Reflektionskoeffizient}
+\[ \Gamma_E = \frac{\eta_2 - \eta_1}{\eta_2 + \eta_1} = -\Gamma_H \]
+\[ \eta = \sqrt{\frac{\hat{z}}{\hat{y}}} \]
+Freiraum: 
+\[ \hat{z} = j \omega\mu_0 \]
+\[ \hat{y} = j \omega \varepsilon_0 \]
+Nichtmagnetische Leiter:
+\[ \hat{z} = j \omega\mu_0 \]
+\[ \hat{y} = \rho + j \omega \varepsilon_0 \]
+\[ E_t = E_e \cdot (1 + \Gamma) \]
+
+\subsection{Absorbtion}
+\[ \delta = \frac{1}{\sqrt{\pi \cdot f \cdot \rho \cdot \mu}} \]
 
 \end{document}
