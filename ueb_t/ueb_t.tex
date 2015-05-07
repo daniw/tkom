@@ -233,4 +233,13 @@ Mögliche Anforderungen an Basisband Modulator
     ${S_x}$         & : normierte Signalleistung \\
 \end{tabular}
 
+\section{Modulation}
+
+\subsection{AM-Modulation}
+\[ U_{AM}(t) = A_T (1 + m \cdot s(t)) \cdot \cos(\omega_0 \cdot t) \]
+Modulationssignal
+\[ S_m(t) = A_M \cdot \cos(\omega_M \cdot t) \]
+\[ m = \frac{A_M}{A_T} \]
+\[ U_{AM}(t) = A_T \cdot \cos(\omega_0 \cdot t) + \frac{A_T \cdot m}{2} \cdot \cos((\omega_0 + \omega_M) \cdot t) + \frac{A_T \cdot m}{2} \cdot \cos((\omega_0 - \omega_M) \cdot t) \]
+
 \end{document}
